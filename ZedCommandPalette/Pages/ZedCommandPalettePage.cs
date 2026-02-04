@@ -5,13 +5,13 @@
 using Microsoft.CommandPalette.Extensions;
 using Microsoft.CommandPalette.Extensions.Toolkit;
 
-namespace ZedCommandPalette;
+namespace ZedCommandPalette.Pages;
 
 internal sealed partial class ZedCommandPalettePage : ListPage
 {
     public ZedCommandPalettePage()
     {
-        Icon = IconHelpers.FromRelativePath("Assets\\zed-logo.svg");
+        Icon = Icons.ZedIcon;
         Title = "Zed for Command Palette";
         Name = "Open";
     }

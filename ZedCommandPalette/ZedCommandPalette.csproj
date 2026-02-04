@@ -38,6 +38,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\Zed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Zed.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
   <!--
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution
