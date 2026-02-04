@@ -10,20 +10,18 @@ namespace ZedCommandPalette;
 
 public partial class ZedCommandPaletteCommandsProvider : CommandProvider
 {
-    private readonly ICommandItem[] _commands;
+    private readonly CommandItem _zedPageItem;
 
     public ZedCommandPaletteCommandsProvider()
     {
         DisplayName = "Zed for Command Palette";
         Icon = Icons.ZedIcon;
-        _commands = [
-            new CommandItem(new ZedCommandPalettePage()) { Title = DisplayName },
-        ];
+
+        _zedPageItem = new CommandItem(new ZedProjectsListPage()) { Title = "Open Recent Zed" };
     }
 
     public override ICommandItem[] TopLevelCommands()
     {
-        return _commands;
+        return [_zedPageItem];
     }
-
 }
