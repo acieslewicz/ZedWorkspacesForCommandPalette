@@ -40,7 +40,10 @@ internal sealed partial class ZedProjectsListPage : DynamicListPage
             .Where(p => string.IsNullOrEmpty(SearchText) ||
                         p.Paths.Any(path => path.Contains(SearchText, StringComparison.OrdinalIgnoreCase)))
             .Select(p => new ListItem(new OpenZedProjectCommand(p))
-                { Icon = Icons.ZedIcon, Title = p.Name, Subtitle = p.Paths[0] })
+            {
+                Icon = Icons.ZedIcon, Title = p.Name, Subtitle = p.Paths.FirstOrDefault() ?? "",
+                Tags = p.RemoteConnection is not null ? [new Tag { Text = p.RemoteConnection.Kind }] : []
+            })
             .ToArray<IListItem>();
     }
 }
