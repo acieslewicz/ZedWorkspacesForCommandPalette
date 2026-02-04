@@ -1,11 +1,11 @@
 ﻿// Copyright (c) acieslewicz
 // Licensed under the MIT License. See the LICENSE file in the project root for details.
 
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Microsoft.Data.Sqlite;
+using ZedCommandPalette.Helpers;
 
 namespace ZedCommandPalette.Components;
 
@@ -31,15 +31,9 @@ internal class ZedProject(long workspaceId, List<string> paths, RemoteConnection
 
 internal class ZedRecentProjects
 {
-    private static string GetZedDbPath()
-    {
-        var localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-        return Path.Combine(localAppData, "Zed", "db", "0-stable", "db.sqlite");
-    }
-
     internal static List<ZedProject> GetRecentProjects()
     {
-        var dbPath = GetZedDbPath();
+        var dbPath = SettingsManager.Instance.DbPath;
         if (!File.Exists(dbPath)) return [];
 
         using var connection = new SqliteConnection($"Data Source={dbPath};Mode=ReadOnly");

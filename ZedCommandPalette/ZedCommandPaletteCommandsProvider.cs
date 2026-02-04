@@ -4,6 +4,7 @@
 
 using Microsoft.CommandPalette.Extensions;
 using Microsoft.CommandPalette.Extensions.Toolkit;
+using ZedCommandPalette.Helpers;
 using ZedCommandPalette.Pages;
 
 namespace ZedCommandPalette;
@@ -16,6 +17,7 @@ public partial class ZedCommandPaletteCommandsProvider : CommandProvider
     {
         DisplayName = "Zed for Command Palette";
         Icon = Icons.ZedIcon;
+        Settings = SettingsManager.Instance.Settings;
 
         _zedPageItem = new CommandItem(new ZedProjectsListPage()) { Title = "Open Recent Zed" };
     }
