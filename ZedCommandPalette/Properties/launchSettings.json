@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "ZedCommandPalette (Package)": {
+      "commandName": "MsixPackage",
+      "doNotLaunchApp": true
+    },
+    "ZedCommandPalette (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
