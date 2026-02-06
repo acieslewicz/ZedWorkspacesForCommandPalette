@@ -8,4 +8,5 @@ namespace ZedCommandPalette;
 internal static class Icons
 {
     internal static IconInfo ZedIcon { get; } = IconHelpers.FromRelativePath("Assets\\Zed.svg");
+    internal static IconInfo RefreshIcon { get; } = new("\uE72C");
 }

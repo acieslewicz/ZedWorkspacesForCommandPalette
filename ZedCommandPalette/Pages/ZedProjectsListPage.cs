@@ -37,7 +37,6 @@ internal sealed partial class ZedProjectsListPage : DynamicListPage, INotifyItem
         {
             ItemsChanged += value;
             LoadProjects();
-            RaiseItemsChanged();
         }
         remove => ItemsChanged -= value;
     }
@@ -66,7 +65,10 @@ internal sealed partial class ZedProjectsListPage : DynamicListPage, INotifyItem
                 Icon = Icons.ZedIcon,
                 Title = p.Name,
                 Subtitle = p.Paths.FirstOrDefault() ?? "",
-                Tags = p.RemoteConnection is not null ? [new Tag { Text = p.RemoteConnection.Kind }] : []
+                Tags = p.RemoteConnection is not null ? [new Tag { Text = p.RemoteConnection.Kind }] : [],
+                MoreCommands = [new CommandContextItem(new RefreshCommand(LoadProjects))]
             })).ToList();
+
+        RaiseItemsChanged();
     }
 }
