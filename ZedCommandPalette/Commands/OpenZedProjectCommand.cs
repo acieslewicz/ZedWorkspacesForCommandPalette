@@ -22,10 +22,6 @@ internal sealed partial class OpenZedProjectCommand : InvokableCommand
 
     public override ICommandResult Invoke()
     {
-        if (_project.Paths.Count < 1)
-            return CommandResult.Confirm(new ConfirmationArgs
-                { Title = "Error", Description = "Project does not have any associated paths." });
-
         var args = string.Join(' ', _project.Paths.Select(p => $"\"{p}\""));
 
         switch (_project.RemoteConnection)
