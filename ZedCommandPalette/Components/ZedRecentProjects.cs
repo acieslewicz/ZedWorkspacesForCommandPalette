@@ -44,7 +44,7 @@ internal sealed class ZedRecentProjects
                                   SELECT w.workspace_id, w.paths, w.paths_order, rc.kind, rc.distro, rc.user
                                   FROM workspaces w
                                   LEFT JOIN remote_connections rc ON w.remote_connection_id = rc.id
-                                  WHERE paths IS NOT NULL
+                                  WHERE w.paths IS NOT NULL AND w.paths != ''
                                   ORDER BY timestamp DESC
                               """;
 
