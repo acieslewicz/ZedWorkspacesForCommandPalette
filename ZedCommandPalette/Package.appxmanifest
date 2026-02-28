@@ -11,7 +11,7 @@
   <Identity
     Name="ZedCommandPalette"
     Publisher="CN=Alexander Cieslewicz, O=Alexander Cieslewicz, L=Morrison, S=Colorado, C=US"
-    Version="0.0.1.0" />
+    Version="0.0.2.0" />
 
   <Properties>
     <DisplayName>Zed for Command Palette</DisplayName>

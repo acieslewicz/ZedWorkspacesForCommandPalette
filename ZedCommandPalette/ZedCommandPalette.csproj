@@ -14,7 +14,7 @@
     <Nullable>enable</Nullable>
     <AppxPackageIdentityName>ZedCommandPalette</AppxPackageIdentityName>
     <AppxPackagePublisher>CN=Alexander Cieslewicz, O=Alexander Cieslewicz, L=Morrison, S=Colorado, C=US</AppxPackagePublisher>
-    <AppxPackageVersion>0.0.1.0</AppxPackageVersion>
+    <AppxPackageVersion>0.0.2.0</AppxPackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
