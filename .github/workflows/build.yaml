@@ -40,6 +40,16 @@ jobs:
         Write-Host "Using version: $version"
       shell: pwsh
 
+    - name: Override publisher for CI signing
+      run: |
+        $manifest = "${{ env.FOLDER_NAME }}/Package.appxmanifest"
+        $publisher = "CN=Alexander Cieslewicz, O=Alexander Cieslewicz, L=Morrison, S=Colorado, C=US"
+
+        $xml = [xml](Get-Content $manifest)
+        $node = $xml.GetElementsByTagName("Identity")[0]
+        $node.Publisher = $publisher
+        $xml.Save($manifest)
+
     - name: Build
       working-directory: ${{ env.FOLDER_NAME }}
       run: >
