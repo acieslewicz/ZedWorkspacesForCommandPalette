@@ -4,6 +4,8 @@
 
 This project provides an unofficial PowerToys command palette extension for opening recent Zed projects.
 
+![Zed Workspaces for Command Palette](./Assets/screenshot1.png)
+
 ## How It Works
 
 The extension parses Zed's local sqlite database file to find information about the most recently used workspaces and provides a way to launch them through Zed.
