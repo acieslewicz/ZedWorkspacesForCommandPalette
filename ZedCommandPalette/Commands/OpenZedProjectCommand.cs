@@ -36,7 +36,7 @@ internal sealed partial class OpenZedProjectCommand : InvokableCommand
                     var user = ssh.User is not null ? $"{ssh.User}@" : "";
                     var port = ssh.Port is not null ? $":{ssh.Port}" : "";
                     var target = $"ssh://{user}{ssh.Host}{port}";
-                    args = string.Join(' ', _project.Paths.Select(p => $"\"{target}/{p}\""));
+                    args = string.Join(' ', _project.Paths.Select(p => $"\"{target}{p}\""));
                     break;
                 }
             case RemoteConnection.Wsl wsl:
