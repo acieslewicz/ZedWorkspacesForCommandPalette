@@ -6,6 +6,7 @@ on:
 env:
   FOLDER_NAME: ${{ vars.FOLDER_NAME || 'ZedCommandPalette' }}
   EXTENSION_NAME: ${{ vars.EXTENSION_NAME || 'ZedCommandPalette' }}
+  PACKAGE_IDENTITY: ${{ vars.PACKAGE_IDENTITY || 'ZedWorkspacesforCommandPalette' }}
 
 jobs:
   build:
@@ -80,7 +81,7 @@ jobs:
     - name: Upload MSIX artifact
       uses: actions/upload-artifact@v6
       with:
-        name: ${{ env.EXTENSION_NAME }}-${{ matrix.platform }}-v${{ steps.version.outputs.VERSION }}-installer
+        name: ${{ env.PACKAGE_IDENTITY }}-${{ matrix.platform }}-v${{ steps.version.outputs.VERSION }}-installer
         path: AppPackages/${{ matrix.platform }}/**/*.msix
 
   release:
@@ -97,7 +98,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ needs.build.outputs.version }}
-          name: "${{ env.EXTENSION_NAME }} v${{ needs.build.outputs.version }}"
+          name: "${{ env.PACKAGE_IDENTITY }} v${{ needs.build.outputs.version }}"
           generate_release_notes: true
           files: "**/*.msix"
           draft: false
